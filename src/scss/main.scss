@@ -1,0 +1,210 @@
+@use 'animations';
+@use 'variables';
+@use 'mixins';
+
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Work Sans", sans-serif;
+}
+
+body {
+  background-color: variables.$bg-color;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  // display: flex;
+  // flex-direction: column;
+}
+
+.card {
+  background-color: variables.$accent;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  transition: ease-in-out 200ms;
+
+  &:hover {
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
+      0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  }
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  .cell {
+    position: relative;
+    background-color: #f1f1f1;
+    padding: 0;
+    flex: 1 1 30%;
+    min-height: 50px;
+
+    .label {
+      padding: 2%;
+
+      h3 {
+        margin-bottom: 5px;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  }
+}
+
+.id {
+  display: flex;
+  // justify-content: space-around;
+  align-items: center;
+
+  img {
+    max-height: 250px;
+    margin: 20px;
+  }
+}
+h1 {
+  @include mixins.fluid-font(4vw, 25px, 35px, 30px);
+}
+
+h3 {
+  @include mixins.fluid-font(2vw, 15px, 20px, 20px);
+  font-weight: 300;
+}
+
+h4 {
+  @include mixins.fluid-font(2vw, 15px, 15px, 20px);
+}
+
+.is-visible {
+  opacity: 1;
+}
+
+.is-hidden {
+  opacity: 0;
+}
+
+.intro.rotate .wordWrapper {
+  display: inline-block;
+  perspective: 300px;
+  width: 8rem;
+  margin: 0 auto;
+}
+
+.intro.rotate b {
+  opacity: 0;
+  transform-origin: 50% 100%;
+  transform: rotateX(180deg);
+  display: inline-block;
+  position: absolute;
+  white-space: nowrap;
+  // left: 0;
+  top: 0;
+}
+
+.intro.rotate b.is-visible {
+  position: relative;
+  opacity: 1;
+  transform: rotateX(0deg);
+  animation: rotate-in 1.2s;
+}
+
+.intro.rotate b.is-hidden {
+  transform: rotateX(180deg);
+  animation: rotate-out 1.2s;
+  opacity: 0;
+}
+
+.drawer {
+  z-index: 10;
+  position: fixed;
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  right: 0;
+  box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14),
+    0 1px 8px 0 rgba(0, 0, 0, 0.12);
+  transition: ease-in-out 100ms;
+  pointer-events: auto;
+  h1 {
+    padding: 10px;
+  }
+
+  // .image {
+  //   background-image: radial-gradient(transparent, black),
+  //     url(../img/Room2.37.jpg);
+  //   background-repeat: no-repeat;
+  //   background-size: cover;
+  //   height: 50vh;
+  //   max-width: 100%;
+
+  //   transition: ease-in-out 500ms;
+  // }
+  // .image:hover {
+  //   background-image: radial-gradient(transparent, transparent),
+  //     url(../img/Room2.37.jpg);
+  //   max-width: 100%;
+
+  //   transition: ease-in-out 500ms;
+  // }
+}
+
+.drawer--closed {
+  opacity: 0;
+  transform: scale(0.99);
+  transition: ease-in-out 100ms;
+  pointer-events: none;
+}
+
+button {
+  z-index: 20;
+  position: relative;
+}
+
+@media (max-width: 30rem) {
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+
+    .cell {
+      flex: 1 1 100%;
+      min-height: 50px;
+    }
+  }
+
+  .id {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      max-height: 250px;
+      margin: 10px;
+    }
+    h1 {
+      text-align: center;
+      // font-size: 6vw;
+    }
+    h3 {
+      text-align: center;
+      // font-size: 4vw;
+    }
+  }
+  .intro.rotate {
+    .wordWrapper {
+      width: 12rem;
+    }
+  }
+}
