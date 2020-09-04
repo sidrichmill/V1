@@ -1,3 +1,6 @@
+
+@use "sass:color";
+
 @mixin fluid-font($responsive, $min, $max: false, $fallback: false) {
   $responsive-unitless: $responsive / ($responsive - $responsive + 1);
   $dimension: if(unit($responsive) == "vh", "height", "width");
@@ -15,4 +18,16 @@
     font-size: $fallback;
   }
   font-size: $responsive;
+}
+
+@mixin cardColor($bgcolor){
+background-color: $bgcolor;
+
+h2 {
+  color: color.change($bgcolor, $lightness: 20%);
+}
+h4{
+  color: color.change($bgcolor, $lightness: 10%);
+
+}
 }

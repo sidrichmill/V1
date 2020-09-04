@@ -1,0 +1,34 @@
+@media (max-width: 30rem) {
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+  
+      .cell {
+        flex: 1 1 100%;
+        min-height: 50px;
+      }
+    }
+  
+    .id {
+      display: flex;
+      flex-direction: column;
+  
+      img {
+        max-height: 250px;
+        margin: 10px;
+      }
+      h1 {
+        text-align: center;
+        // font-size: 6vw;
+      }
+      h3 {
+        text-align: center;
+        // font-size: 4vw;
+      }
+    }
+    .intro.rotate {
+      .wordWrapper {
+        width: 12rem;
+      }
+    }
+  }

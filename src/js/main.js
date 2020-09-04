@@ -1,6 +1,7 @@
-import "./../scss/main.scss";
+// import "./../scss/main.scss";
+
 //------------------------------------------------------------------------
-// const dispatch = e => document.dispatchEvent(new Event(e));
+const dispatch = e => document.dispatchEvent(new Event(e));
 const select = (selector) => document.querySelector(selector);
 const selectAll = (selector) => document.querySelectorAll(selector);
 

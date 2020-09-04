@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap");
 @keyframes rotate-in {
   0% {
     transform: rotateX(180deg);
@@ -33,15 +34,75 @@
     opacity: 0;
   }
 }
+body {
+  background-color: #edf1df;
+}
+
+grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+grid .cell {
+  position: relative;
+  padding: 0;
+  flex: 1 30%;
+  min-height: 50px;
+}
+grid .cell .label {
+  padding: 2%;
+}
+grid .cell .label h3 {
+  margin-bottom: 5px;
+}
+grid .cell img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.id {
+  display: flex;
+  align-items: center;
+}
+.id img {
+  max-height: 250px;
+  margin: 20px;
+}
+
+.intro .rotate .wordWrapper {
+  display: inline-block;
+  perspective: 300px;
+  width: 8rem;
+  margin: 0 auto;
+}
+.intro .rotate b {
+  opacity: 0;
+  transform-origin: 50% 100%;
+  transform: rotateX(180deg);
+  display: inline-block;
+  position: absolute;
+  white-space: nowrap;
+  top: 0;
+}
+.intro .rotate b.is-visible {
+  position: relative;
+  opacity: 1;
+  transform: rotateX(0deg);
+  animation: rotate-in 1.2s;
+}
+.intro .rotate b.is-hidden {
+  transform: rotateX(180deg);
+  animation: rotate-out 1.2s;
+  opacity: 0;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Work Sans", sans-serif;
-}
-
-body {
-  background-color: #edf1df;
+  font-family: "Roboto", sans-serif;
+  color: #181818;
 }
 
 .container {
@@ -61,40 +122,9 @@ body {
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-}
-.grid .cell {
-  position: relative;
-  background-color: #f1f1f1;
-  padding: 0;
-  flex: 1 1 30%;
-  min-height: 50px;
-}
-.grid .cell .label {
-  padding: 2%;
-}
-.grid .cell .label h3 {
-  margin-bottom: 5px;
-}
-.grid .cell img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.id {
-  display: flex;
-  align-items: center;
-}
-.id img {
-  max-height: 250px;
-  margin: 20px;
-}
-
 h1 {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 400;
   font-size: 30px;
   font-size: 4vw;
 }
@@ -107,6 +137,10 @@ h1 {
   h1 {
     font-size: 35px;
   }
+}
+h1 b {
+  font-weight: 500;
+  font-family: "Quicksand", sans-serif;
 }
 
 h3 {
@@ -124,10 +158,33 @@ h3 {
     font-size: 20px;
   }
 }
+h3 b {
+  font-weight: 400;
+}
 
-h4 {
+h2 {
+  font-family: "Quicksand", sans-serif;
   font-size: 20px;
   font-size: 2vw;
+  font-weight: 600;
+  color: white;
+}
+@media (max-width: 750px) {
+  h2 {
+    font-size: 15px;
+  }
+}
+@media (min-width: 1000px) {
+  h2 {
+    font-size: 20px;
+  }
+}
+
+h4 {
+  color: white;
+  font-size: 20px;
+  font-size: 2vw;
+  font-weight: 300;
 }
 @media (max-width: 750px) {
   h4 {
@@ -145,36 +202,6 @@ h4 {
 }
 
 .is-hidden {
-  opacity: 0;
-}
-
-.intro.rotate .wordWrapper {
-  display: inline-block;
-  perspective: 300px;
-  width: 8rem;
-  margin: 0 auto;
-}
-
-.intro.rotate b {
-  opacity: 0;
-  transform-origin: 50% 100%;
-  transform: rotateX(180deg);
-  display: inline-block;
-  position: absolute;
-  white-space: nowrap;
-  top: 0;
-}
-
-.intro.rotate b.is-visible {
-  position: relative;
-  opacity: 1;
-  transform: rotateX(0deg);
-  animation: rotate-in 1.2s;
-}
-
-.intro.rotate b.is-hidden {
-  transform: rotateX(180deg);
-  animation: rotate-out 1.2s;
   opacity: 0;
 }
 
@@ -234,6 +261,65 @@ button {
   .intro.rotate .wordWrapper {
     width: 12rem;
   }
+}
+.color1 {
+  background-color: #f9cb85;
+}
+.color1 h2 {
+  color: #613d05;
+}
+.color1 h4 {
+  color: #311e02;
+}
+
+.color2 {
+  background-color: #ef7457;
+}
+.color2 h2 {
+  color: #5d1909;
+}
+.color2 h4 {
+  color: #2f0c04;
+}
+
+.color3 {
+  background-color: #72b498;
+}
+.color3 h2 {
+  color: #234335;
+}
+.color3 h4 {
+  color: #12211b;
+}
+
+.color4 {
+  background-color: #8c73a9;
+}
+.color4 h2 {
+  color: #32273f;
+}
+.color4 h4 {
+  color: #191320;
+}
+
+.color5 {
+  background-color: #337fba;
+}
+.color5 h2 {
+  color: #163750;
+}
+.color5 h4 {
+  color: #0b1b28;
+}
+
+.color6 {
+  background-color: #f0a6b9;
+}
+.color6 h2 {
+  color: #570f21;
+}
+.color6 h4 {
+  color: #2c0711;
 }
 
 /*# sourceMappingURL=/main.fb6bbcaf.css.map */

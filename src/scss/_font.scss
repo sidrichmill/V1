@@ -1,0 +1,37 @@
+@use 'mixins';
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
+
+
+  
+  h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    @include mixins.fluid-font(4vw, 25px, 35px, 30px);
+    b {
+      font-weight: 500;
+      font-family: 'Quicksand', sans-serif;
+    }
+  }
+  
+  h3 {
+    @include mixins.fluid-font(2vw, 15px, 20px, 20px);
+    font-weight: 300;
+    b {
+      font-weight: 400;
+    }
+  }
+  
+  h2 {
+    font-family: 'Quicksand', sans-serif;
+    @include mixins.fluid-font(2vw, 15px, 20px, 20px);
+    font-weight: 600;
+    color: white;
+  }
+  
+  h4 {
+    color: white;
+    @include mixins.fluid-font(2vw, 15px, 15px, 20px);
+    font-weight: 300;
+  }
